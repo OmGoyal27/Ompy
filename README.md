@@ -20,6 +20,7 @@ Each argument is separated with a space.
 |link|Link|
 |open|app|
 |wait|Delay time|
+|speak|text|
 
 
 ## Detailed documentation on each key
@@ -84,3 +85,10 @@ Each argument is separated with a space.
 
     - The wait command waits for the given period of seconds.
     - For eg; wait 3
+
+
+- Speak
+
+    - The speak command lets you make the machine speak words or sentences.
+    - You could enter full sentences too, as log as Python and your machine could handle it.
+    - For eg; speak Hello World!

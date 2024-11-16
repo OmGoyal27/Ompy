@@ -3,7 +3,22 @@ import webbrowser
 import subprocess
 from pathlib import Path
 import time
+import pyttsx3
 
+
+def text_to_speech(text):
+    speed = 130
+    # Initialize the TTS engine
+    engine = pyttsx3.init()
+
+    # Set the speed (words per minute)
+    engine.setProperty('rate', speed)
+
+    # Convert text to speech
+    engine.say(text)
+
+    # Wait for the speech to finish
+    engine.runAndWait()
 
 def combo(argument: str):
     arguments = argument.split('+')
@@ -35,6 +50,9 @@ def doFunc(function_name: str, argument: str):
         case "wait":
             print(f"Waiting for {argument} seconds.")
             time.sleep(int(argument))
+        case "speak":
+            print(f"Speaking {argument}")
+            text_to_speech(argument)
         case _:
             print("Unknown command.")        # Unknown command
 
