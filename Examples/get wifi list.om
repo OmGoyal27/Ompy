@@ -1,0 +1,4 @@
+open cmd
+wait 3
+type netsh wlan show profile
+press enter
