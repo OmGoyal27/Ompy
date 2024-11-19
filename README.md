@@ -1,8 +1,9 @@
-# Om programming language
+# Ompy programming language
 
 Hello Everyone! This is a custom programming language, specifically designed to simulate HID outputs on the device running it.
 It is designed mainly for newbies, who don't want to install any kind of software on their device, but still emulate things.
 
+It is cross-platform compatible with linux, Mac OS and Windows all are supported _(It has currently only been tested on Windows, but since it runs on Python and no OS specific libraries are used, it should technically work on all OSes.)_
 # Documentation
 
 This is a language just like Python, built in Python. It is kind of based on the indentation too!
