@@ -7,8 +7,14 @@ import pyttsx3
 from plyer import notification
 
 
+TEXT_TO_SPEECH_SPEED = 130
+POPUP_TITLE = "Popup message"
+NOTIFICATION_TIMEOUT_SECONDS = 3
+
+
 def text_to_speech(text):
-    speed = 130
+    global TEXT_TO_SPEECH_SPEED
+    speed = TEXT_TO_SPEECH_SPEED
     # Initialize the TTS engine
     engine = pyttsx3.init()
 
@@ -26,6 +32,8 @@ def combo(argument: str):
     pg.hotkey(arguments)
 
 def doFunc(function_name: str, argument: str):
+    global POPUP_TITLE
+    global NOTIFICATION_TIMEOUT_SECONDS
     '''
     Performs the required function.
     Args:
@@ -56,14 +64,14 @@ def doFunc(function_name: str, argument: str):
             text_to_speech(argument)
         case "popup":
             print(f"Displaying message {argument}")
-            pg.alert(argument, "Popup message")
+            pg.alert(argument, POPUP_TITLE)
         case "notify":
             message, title = argument.split("&")
             print(f"Sending notificataion '{message}' with title '{title}'")
             notification.notify(        # Send a notification to the system.
             title=title,
             message=message,
-            timeout=3
+            timeout=NOTIFICATION_TIMEOUT_SECONDS
             )
         case _:
             print("Unknown command.")        # Unknown command
