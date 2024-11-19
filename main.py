@@ -53,13 +53,16 @@ def doFunc(function_name: str, argument: str):
         case "speak":
             print(f"Speaking {argument}")
             text_to_speech(argument)
+        case "popup":
+            print(f"Displaying message {argument}")
+            pg.alert(argument, "Popup message")
         case _:
             print("Unknown command.")        # Unknown command
 
 
 def main():
     for eachCode in eachLineCode:
-        function_name, argument = eachCode.split(' ', 1)
+        function_name, argument = eachCode.split(' ', 1)        # Gets the function name and argument separated
         doFunc(function_name.lower(), argument)
 
 

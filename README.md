@@ -21,6 +21,7 @@ Each argument is separated with a space.
 |open|app|
 |wait|Delay time|
 |speak|text|
+|popup|message|
 
 
 ## Detailed documentation on each key
@@ -92,3 +93,11 @@ Each argument is separated with a space.
     - The speak command lets you make the machine speak words or sentences.
     - You could enter full sentences too, as log as Python and your machine could handle it.
     - For eg; speak Hello World!
+
+
+- Popup
+
+    - The popup command displays a popup screen with a specific tezt message.
+    - Any message is accepted.
+    - Other code execution is blocked until the popup is closed.
+    - For eg; popup Hello World!
