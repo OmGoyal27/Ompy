@@ -4,6 +4,7 @@ import subprocess
 from pathlib import Path
 import time
 import pyttsx3
+from plyer import notification
 
 
 def text_to_speech(text):
@@ -56,6 +57,14 @@ def doFunc(function_name: str, argument: str):
         case "popup":
             print(f"Displaying message {argument}")
             pg.alert(argument, "Popup message")
+        case "notify":
+            message, title = argument.split("&")
+            print(f"Sending notificataion '{message}' with title '{title}'")
+            notification.notify(        # Send a notification to the system.
+            title=title,
+            message=message,
+            timeout=3
+            )
         case _:
             print("Unknown command.")        # Unknown command
 

@@ -22,6 +22,7 @@ Each argument is separated with a space.
 |wait|Delay time|
 |speak|text|
 |popup|message|
+|notify|message&title|
 
 
 ## Detailed documentation on each key
@@ -101,3 +102,12 @@ Each argument is separated with a space.
     - Any message is accepted.
     - Other code execution is blocked until the popup is closed.
     - For eg; popup Hello World!
+
+
+- Notify
+
+    - The notify command sends a notification message to the system.
+    - It accepts 2 arguments: The message and title.
+    - The arguments have to be given like message&title.
+    - Note- The '&' sign cannot be used for either the message or the title.
+    - For eg; notify Hello World!&From Om:
