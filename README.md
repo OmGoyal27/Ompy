@@ -81,7 +81,7 @@ Each argument is separated with a space.
     - The open command open an app.
     - The argument to pass with it is the app name.
     - How it works: It is kind of a run dialog.
-    - Note: Do not inclue the extention.
+    - Note: It is optional to include extention, but it is _recommended_.
     - For eg; open notepad
 
 
