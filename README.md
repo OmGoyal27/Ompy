@@ -25,6 +25,7 @@ Each argument is separated with a space.
 |popup|message|
 |notify|message&title|
 |pausekey|key|
+|runpyfile|path|
 
 
 ## Detailed documentation on each key
@@ -129,3 +130,12 @@ Each argument is separated with a space.
         * Any other keys like esc are in their original name; like esc is for the escape key, del is for the delete key, prtsc is for print screen key etc.
         * Any other alphanumeric character will be accepted.
     - For eg; pausekey esc
+
+
+- Runpyfile
+
+    - The runpyfile command's argument accepts the path of a Python file.
+    - It accepts the file's absolute path.
+    - Any pip installation required for the custom file should be done in the environment or system running the initial Python file.
+    - It runs the Python file as the host.
+    - For eg; runpyfile C:/PathToPythonfile.py

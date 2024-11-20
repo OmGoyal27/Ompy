@@ -78,6 +78,11 @@ def doFunc(function_name: str, argument: str):
             print(f"Waiting for key {argument}")
             waitforkeypressed(argument)
             print(f"Resuming script as key {argument} was pressed.")
+        case "runpyfile":
+            print(f"Running Python file located at location {argument}")
+            with open(argument) as rawcustomcode:
+                exec(rawcustomcode.read())      # Run the code
+            print("Successfully ran the Python file.")
         case _:
             print("Unknown command.")        # Unknown command
 
