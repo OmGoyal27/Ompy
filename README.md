@@ -24,6 +24,7 @@ Each argument is separated with a space.
 |speak|text|
 |popup|message|
 |notify|message&title|
+|pausekey|key|
 
 
 ## Detailed documentation on each key
@@ -112,3 +113,19 @@ Each argument is separated with a space.
     - The arguments have to be given like message&title.
     - Note- The '&' sign cannot be used for either the message or the title.
     - For eg; notify Hello World!&From Om:
+
+
+- Pausekey
+
+    - The pausekey commands blocks the script until a specific key is pressed.
+    - Only one key is accepted.
+    - Available keys:
+
+        * 'ctrl' for the control key.
+        * 'shift' for the shift key.
+        * 'gui' for the Windows key.
+        * 'alt' for the alt key.
+        * Function keys are same; e.g. 'f13', 'f12' etc.
+        * Any other keys like esc are in their original name; like esc is for the escape key, del is for the delete key, prtsc is for print screen key etc.
+        * Any other alphanumeric character will be accepted.
+    - For eg; pausekey esc

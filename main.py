@@ -5,7 +5,7 @@ from pathlib import Path
 import time
 import pyttsx3
 from plyer import notification
-
+from keyboard import wait as waitforkeypressed
 
 TEXT_TO_SPEECH_SPEED = 130
 POPUP_TITLE = "Popup message"
@@ -62,6 +62,7 @@ def doFunc(function_name: str, argument: str):
         case "speak":
             print(f"Speaking {argument}")
             text_to_speech(argument)
+            print(f"Spoke {argument}")
         case "popup":
             print(f"Displaying message {argument}")
             pg.alert(argument, POPUP_TITLE)
@@ -73,6 +74,10 @@ def doFunc(function_name: str, argument: str):
             message=message,
             timeout=NOTIFICATION_TIMEOUT_SECONDS
             )
+        case "pausekey":
+            print(f"Waiting for key {argument}")
+            waitforkeypressed(argument)
+            print(f"Resuming script as key {argument} was pressed.")
         case _:
             print("Unknown command.")        # Unknown command
 
