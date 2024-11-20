@@ -1,2 +1,4 @@
 # Ignore all .test files
 test.py
+# Ignore the commands.om file, which is used mainly for testing
+commands.om
