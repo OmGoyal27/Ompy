@@ -119,7 +119,8 @@ Each argument is separated with a space.
 - Pausekey
 
     - The pausekey commands blocks the script until a specific key is pressed.
-    - Only one key is accepted.
+    - A combination of keys is accepted.
+    - The keys to press are separated by the plus '+' symbol.
     - Available keys:
 
         * 'ctrl' for the control key.
