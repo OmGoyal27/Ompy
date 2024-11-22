@@ -88,6 +88,12 @@ def doFunc(function_name: str, argument: str):
             print(f"Sending an HTTP request to {argument}")
             requests.get(argument)
             print(f"Sent an HTTP request to {argument}")
+        case "movemouseto":
+            print(f"Moving mouse to {argument}")
+            x, y = argument.split(", ")
+            x = int(x.removeprefix('('))
+            y = int(y.removesuffix(')'))
+            pg.moveTo((x, y))
         case _:
             print("Unknown command.")        # Unknown command
 

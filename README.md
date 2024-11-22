@@ -27,6 +27,7 @@ Each argument is separated with a space.
 |pausekey|key|
 |runpyfile|path|
 |sendhttpreq|url|
+|movemouseto|(x, y)|
 
 ## Detailed documentation on each key
 
@@ -147,3 +148,11 @@ Each argument is separated with a space.
     - The sendhttpreq command sends a get request to the url.
     - It does not return anything.
     - For eg; sendhttpreq https://example.com
+
+- Movemouseto
+
+    - Moves the mouse cursor to a specific part of the screen.
+    - It is an absolute mouse.
+    - The arguments accepted are in the form of (x, y).
+    - It does not click the mouse after moving it there.
+    - For eg; movemouseto (0, 0)
