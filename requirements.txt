@@ -2,3 +2,5 @@ pyautogui
 webbrowser
 pyttsx3
 plyer
+keyboard
+requests
