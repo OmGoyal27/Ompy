@@ -26,7 +26,7 @@ Each argument is separated with a space.
 |notify|message&title|
 |pausekey|key|
 |runpyfile|path|
-
+|sendhttpreq|url|
 
 ## Detailed documentation on each key
 
@@ -140,3 +140,10 @@ Each argument is separated with a space.
     - Any pip installation required for the custom file should be done in the environment or system running the initial Python file.
     - It runs the Python file as the host.
     - For eg; runpyfile C:/PathToPythonfile.py
+
+
+- Sendhttpreq
+
+    - The sendhttpreq command sends a get request to the url.
+    - It does not return anything.
+    - For eg; sendhttpreq https://example.com

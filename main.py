@@ -6,6 +6,7 @@ import time
 import pyttsx3
 from plyer import notification
 from keyboard import wait as waitforkeypressed
+import requests
 
 TEXT_TO_SPEECH_SPEED = 130
 POPUP_TITLE = "Popup message"
@@ -83,6 +84,10 @@ def doFunc(function_name: str, argument: str):
             with open(argument) as rawcustomcode:
                 exec(rawcustomcode.read())      # Run the code
             print("Successfully ran the Python file.")
+        case "sendhttpreq":
+            print(f"Sending an HTTP request to {argument}")
+            requests.get(argument)
+            print(f"Sent an HTTP request to {argument}")
         case _:
             print("Unknown command.")        # Unknown command
 
