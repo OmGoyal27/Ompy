@@ -94,6 +94,14 @@ def doFunc(function_name: str, argument: str):
             x = int(x.removeprefix('('))
             y = int(y.removesuffix(')'))
             pg.moveTo((x, y))
+        case "mousekey":
+            if argument.lower() == 'l':
+                print("Clicking the left button.")
+                pg.leftClick()
+            if argument.lower() == 'r':
+                print("Clicking the right button.")
+                pg.rightClick()
+
         case _:
             print("Unknown command.")        # Unknown command
 

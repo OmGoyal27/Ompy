@@ -28,6 +28,7 @@ Each argument is separated with a space.
 |runpyfile|path|
 |sendhttpreq|url|
 |movemouseto|(x, y)|
+|mouseclick|key|
 
 ## Detailed documentation on each key
 
@@ -156,3 +157,9 @@ Each argument is separated with a space.
     - The arguments accepted are in the form of (x, y).
     - It does not click the mouse after moving it there.
     - For eg; movemouseto (0, 0)
+
+- Mousekey
+
+    - The mousekey command presses and releases a mouse button.
+    - The arguments accepted are either 'l' for left button or 'r' for right button.
+    - For eg; mousekey l
