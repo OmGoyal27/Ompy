@@ -8,6 +8,7 @@ from plyer import notification
 from keyboard import wait as waitforkeypressed, add_hotkey
 import requests
 from threading import Thread
+from sys import exit as stopscript
 
 TEXT_TO_SPEECH_SPEED = 130
 POPUP_TITLE = "Popup message"
@@ -123,6 +124,8 @@ def main():
     global eachLineCode
     for eachCode in eachLineCode:
         function_name, argument = eachCode.split(' ', 1)        # Gets the function name and argument separated
+        if function_name == 'end':
+            stopscript('The script ended successfully.')
         doFunc(function_name.lower(), argument)
 
 

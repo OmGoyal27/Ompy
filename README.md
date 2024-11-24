@@ -30,6 +30,7 @@ Each argument is separated with a space.
 |movemouseto|(x, y)|
 |mouseclick|key|
 |onkeypressed|key function1;|function2;|someotherfunction|
+|end|None|
 
 ## Detailed documentation on each key
 
@@ -174,3 +175,10 @@ Each argument is separated with a space.
     - Note- No function using the semicolon and the '|' symbol consecutively can be used.
     - It is not fully practical now; but it will probably be in the future.
     - For eg; onkeypressed esc open notepad;|wait 3;|type Hello World!
+
+
+- End
+
+    - The end command stops the script. It is not required to have this function.
+    - It accepts no arguments.
+    - For eg; end
