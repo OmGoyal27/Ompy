@@ -5,8 +5,9 @@ from pathlib import Path
 import time
 import pyttsx3
 from plyer import notification
-from keyboard import wait as waitforkeypressed
+from keyboard import wait as waitforkeypressed, add_hotkey
 import requests
+from threading import Thread
 
 TEXT_TO_SPEECH_SPEED = 130
 POPUP_TITLE = "Popup message"
@@ -31,6 +32,14 @@ def text_to_speech(text):
 def combo(argument: str):
     arguments = argument.split('+')
     pg.hotkey(arguments)
+
+def custom_funcs(function_names: str):
+    '''Performs a series of functions given based on the function names.'''
+    function_names = function_names.split(";|")       # Get the list of all the functions
+    for function in function_names:
+        function_name, argument = function.split(' ', 1)        # Gets the function name and argument separated
+        doFunc(function_name, argument)
+
 
 def doFunc(function_name: str, argument: str):
     global POPUP_TITLE
@@ -101,12 +110,17 @@ def doFunc(function_name: str, argument: str):
             if argument.lower() == 'r':
                 print("Clicking the right button.")
                 pg.rightClick()
+        case "onkeypressed":
+            key, functions = argument.split(' ', 1)
+            print(f"Will wait for key {key} from now on.")
+            add_hotkey(key, custom_funcs, args=(functions))
 
         case _:
-            print("Unknown command.")        # Unknown command
+            print(f"Unknown command. {function_name}")        # Unknown command
 
 
 def main():
+    global eachLineCode
     for eachCode in eachLineCode:
         function_name, argument = eachCode.split(' ', 1)        # Gets the function name and argument separated
         doFunc(function_name.lower(), argument)

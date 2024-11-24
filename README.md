@@ -29,6 +29,7 @@ Each argument is separated with a space.
 |sendhttpreq|url|
 |movemouseto|(x, y)|
 |mouseclick|key|
+|onkeypressed|key function1;|function2;|someotherfunction|
 
 ## Detailed documentation on each key
 
@@ -163,3 +164,13 @@ Each argument is separated with a space.
     - The mousekey command presses and releases a mouse button.
     - The arguments accepted are either 'l' for left button or 'r' for right button.
     - For eg; mousekey l
+
+
+- Onkeypressed
+
+    - The onkeypressed function, activates a thread that activates the given function when the desired key is pressed.
+    - It keeps executing the next line of code, and it is a loop that never stops, unless a function is called to stop the entire script, by force.
+    - Many functions can be called; each function is separated by a semicolon and then a '|'.
+    - Note- No function using the semicolon and the '|' symbol consecutively can be used.
+    - It is not fully practical now; but it will probably be in the future.
+    - For eg; onkeypressed esc open notepad;|wait 3;|type Hello World!
