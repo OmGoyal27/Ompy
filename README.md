@@ -4,6 +4,8 @@ Hello Everyone! This is a custom programming language, specifically designed to 
 It is designed mainly for newbies, who don't want to install any kind of software on their device, but still emulate things.
 
 It is cross-platform compatible with linux, Mac OS and Windows all are supported _(It has currently only been tested on Windows, but since it runs on Python and no OS specific libraries are used, it should technically work on all OSes.)_
+
+Note(Date- 25/11/24): Please uncomment the lines in the mainloop of the Python script if you want to use the _onkeypressed_ function. _It is not necessary to uncomment it to use it, but it is recommended._
 # Documentation
 
 This is a language just like Python, built in Python. It is kind of based on the indentation too!

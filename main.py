@@ -128,6 +128,9 @@ def main():
             stopscript('The script ended successfully.')
         doFunc(function_name.lower(), argument)
 
+    # Uncomment the below lines if you want the script to end only when specified.
+    # while True:
+    #     pass
 
 if __name__ == '__main__':
     # Get the current working directory
