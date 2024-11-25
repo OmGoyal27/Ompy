@@ -114,7 +114,8 @@ def doFunc(function_name: str, argument: str):
         case "onkeypressed":
             key, functions = argument.split(' ', 1)
             print(f"Will wait for key {key} from now on.")
-            add_hotkey(key, custom_funcs, args=(functions))
+            add_hotkey(key, custom_funcs, args=(functions,))
+            time.sleep(1)
 
         case _:
             print(f"Unknown command. {function_name}")        # Unknown command
