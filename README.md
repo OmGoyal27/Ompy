@@ -33,6 +33,7 @@ Each argument is separated with a space.
 |mouseclick|key|
 |onkeypressed|key function1;|function2;|someotherfunction|
 |end|None|
+|nextfile|None|
 
 ## Detailed documentation on each key
 
@@ -184,3 +185,9 @@ Each argument is separated with a space.
     - The end command stops the script. It is not required to have this function.
     - It accepts no arguments.
     - For eg; end
+
+- Nextfile
+
+    - The nextfile command skips the current file or like ends the current file only, and starts for the other file. If no other file is detected and the script is in a loop, it will still run continuously.
+    - It accepts no arguments.
+    - For eg; nextfile
