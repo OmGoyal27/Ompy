@@ -8,7 +8,8 @@ from plyer import notification
 from keyboard import wait as waitforkeypressed, add_hotkey
 import requests
 from threading import Thread
-from sys import exit as stopscript
+from sys import exit as stopscript, argv
+from pathlib import Path
 
 TEXT_TO_SPEECH_SPEED = 130
 POPUP_TITLE = "Popup message"
@@ -178,24 +179,45 @@ def main():
     #     pass
 
 if __name__ == '__main__':
-    # Get the current working directory
-    working_dir = Path.cwd()
-    
-    # List and read all .om files
-    om_files = sorted(list(working_dir.glob("*.om")))           # Returns them alphabetically.
+    # Check if a file was passed as an argument
+    if len(argv) > 1:
+        om_file = argv[1]
+        if om_file.endswith('.om'):
+            path = Path(om_file)
+            
+            code = path.read_text(encoding='utf-8')
 
-    if not om_files:
-        print("No .om files found in the working directory.")
+            try:
+                eachLineCode = code.splitlines()            # Gets each line of the code.
+
+                eachLineCode[:] = [code for code in eachLineCode if code != '']     # Filters for empty lines.
+            except Exception as e:
+                print("It is a single line argument.")
+
+            main()
+        else:
+            print(f"{om_file} is not a valid .om file.")
+            stopscript(f"{om_file} is not a valid .om file.")
     else:
-        for file in om_files:
-            with file.open('r') as content:
-                code = content.read()
 
-                try:
-                    eachLineCode = code.splitlines()            # Gets each line of the code.
-                
-                    eachLineCode[:] = [code for code in eachLineCode if code != '']     # Filters for empty lines.
-                except Exception as e:
-                    print("It is a single line argument.")
-                
-                main()
+        # Get the current working directory
+        working_dir = Path.cwd()
+
+        # List and read all .om files
+        om_files = sorted(list(working_dir.glob("*.om")))           # Returns them alphabetically.
+
+        if not om_files:
+            print("No .om files found in the working directory.")
+        else:
+            for file in om_files:
+                with file.open('r') as content:
+                    code = content.read()
+
+                    try:
+                        eachLineCode = code.splitlines()            # Gets each line of the code.
+
+                        eachLineCode[:] = [code for code in eachLineCode if code != '']     # Filters for empty lines.
+                    except Exception as e:
+                        print("It is a single line argument.")
+
+                    main()
