@@ -10,11 +10,37 @@ import requests
 from threading import Thread
 from sys import exit as stopscript, argv
 from pathlib import Path
+import screen_brightness_control as sbc
 
 TEXT_TO_SPEECH_SPEED = 130
 POPUP_TITLE = "Popup message"
 NOTIFICATION_TIMEOUT_SECONDS = 3
 
+
+def set_brightness(brightness_level: int):
+    # get current brightness value
+    previous_brightness_level = sbc.get_brightness()[0]
+    print(f"Previously brightness level was {previous_brightness_level}% and now it is {brightness_level}%")
+    # Set the brightness of the primary display
+    sbc.set_brightness(brightness_level, display=0)
+
+def brightness_up(brightness_increase_by: int):
+    # get current brightness value
+    brightness_level = sbc.get_brightness()[0]
+    print(f"Current brightness level: {brightness_level}%")
+    brightness_level = brightness_level + brightness_increase_by
+
+    # Set the brightness of the primary display
+    set_brightness(brightness_level)
+
+def brightness_down(brightness_decrease_by: int):
+    # get current brightness value
+    brightness_level = sbc.get_brightness()[0]
+    print(f"Current brightness level: {brightness_level}%")
+    brightness_level = brightness_level - brightness_decrease_by
+    
+    # Set the brightness of the primary display
+    set_brightness(brightness_level)
 
 def text_to_speech(text):
     global TEXT_TO_SPEECH_SPEED
@@ -155,6 +181,22 @@ def doFunc(function_name: str, argument: str):
             
             add_hotkey(key, custom_funcs, args=(functions,))
             time.sleep(1)
+
+        case "brightness":
+            function_to_perform_for_brightness, percentage = argument.split()
+            percentage = int(percentage)        # Convert it into an integer
+            match function_to_perform_for_brightness:
+                case "set":
+                    print(f"Setting brightness to {percentage}%.")
+                    set_brightness(percentage)
+
+                case "up":
+                    print(f"Increasing brightness by {percentage}%.")
+                    brightness_up(percentage)
+
+                case "down":
+                    print(f"Decreasing brightness by {percentage}%.")
+                    brightness_down(percentage)
 
         case _:
             print(f"Unknown command. {function_name}")        # Unknown command

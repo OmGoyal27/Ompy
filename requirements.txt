@@ -4,3 +4,4 @@ pyttsx3
 plyer
 keyboard
 requests
+screen_brightness_control

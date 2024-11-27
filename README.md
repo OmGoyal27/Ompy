@@ -34,6 +34,9 @@ Each argument is separated with a space.
 |onkeypressed|key function1;|function2;|someotherfunction|
 |end|None|
 |nextfile|None|
+|brightness set|brightness_level|
+|brightness up|by_percent|
+|brightness down|by_percent|
 
 ## Detailed documentation on each key
 
@@ -191,3 +194,16 @@ Each argument is separated with a space.
     - The nextfile command skips the current file or like ends the current file only, and starts for the other file. If no other file is detected and the script is in a loop, it will still run continuously.
     - It accepts no arguments.
     - For eg; nextfile
+
+- Brightness
+
+    - The brightness can be controlled via 3 commands:
+    - Brightness_set
+        - The brightness set command accepts the brightness as an argument and it sets the brightness of the display to an absolute percentage.
+        - For eg; brightness set 100
+    - Brightness up
+        - The brightness up command increases the brightness by the given number.
+        - For eg; brightness up 20
+    - Brightness down
+        - The brightness down command decreases the brightness by the given number.
+        - For eg; brightness down 20
