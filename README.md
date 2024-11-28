@@ -37,6 +37,11 @@ Each argument is separated with a space.
 |brightness set|brightness_level|
 |brightness up|by_percent|
 |brightness down|by_percent|
+|window move|x, y|
+|window resize|width, height|
+|window maximize|None|
+|window minimize|None|
+|window restore|None
 
 ## Detailed documentation on each key
 
@@ -198,6 +203,7 @@ Each argument is separated with a space.
 - Brightness
 
     - The brightness can be controlled via 3 commands:
+    
     - Brightness_set
         - The brightness set command accepts the brightness as an argument and it sets the brightness of the display to an absolute percentage.
         - For eg; brightness set 100
@@ -207,3 +213,35 @@ Each argument is separated with a space.
     - Brightness down
         - The brightness down command decreases the brightness by the given number.
         - For eg; brightness down 20
+
+- Window
+
+    - The window command is used for adjusting the currently active window.
+    - It can be controlled via 5 commands:
+
+    - Window move
+
+        - The window move command moves the window depending on the top left corner.
+        - The accepted arguments are the x and y coordinates to move to in the format (x, y).
+        - For eg; window move 0, 0
+
+    - Window resize
+
+        - The window resize command resizes the currently active window.
+        - It accepts 2 arguments: the width and the height to set it to in the format (width, height).
+        - For eg; window resize 800, 600
+
+    - Window maximize
+
+        - The window maximize commad accepts no arguments and maximizes the currently active window.
+        - For eg; window maximize
+
+    - Window minimize
+
+        - The window minimize commad accepts no arguments and minimizes the currently active window.
+        - For eg; window minimize
+
+    - Window restore
+
+        - The window restore commad accepts no arguments and restores the currently active window.
+        - For eg; window restore

@@ -11,6 +11,7 @@ from threading import Thread
 from sys import exit as stopscript, argv
 from pathlib import Path
 import screen_brightness_control as sbc
+import pygetwindow
 
 TEXT_TO_SPEECH_SPEED = 130
 POPUP_TITLE = "Popup message"
@@ -41,6 +42,28 @@ def brightness_down(brightness_decrease_by: int):
     
     # Set the brightness of the primary display
     set_brightness(brightness_level)
+
+def move_window_coordinates_from_topleft(x: int, y: int):
+    # Get the currently active window
+    active_window = pygetwindow.getActiveWindow()
+    if active_window:
+        active_window.restore()     # This is required just in case the window is maximized.
+
+        # Move the window
+        active_window.topleft = x, y  # Move to (100, 100)
+    else:
+        print("No active window found!")
+
+def set_window_size(width: int, height: int):
+    active_window = pygetwindow.getActiveWindow()
+    if active_window:
+        active_window.restore()     # This is required just in case the window is maximized.
+
+        # Resize the window
+        active_window.width = width
+        active_window.height = height
+    else:
+        print("No active window found!")
 
 def text_to_speech(text):
     global TEXT_TO_SPEECH_SPEED
@@ -197,6 +220,47 @@ def doFunc(function_name: str, argument: str):
                 case "down":
                     print(f"Decreasing brightness by {percentage}%.")
                     brightness_down(percentage)
+                case _:
+                    print(f"Unknown command {function_name} for brightness.")
+
+        case "window":
+            function_to_perform_for_window = argument.split(' ', 1)
+            match function_to_perform_for_window[0]:
+                case "move":
+                    passed_args = function_to_perform_for_window[1]
+                    x, y = passed_args.split(', ')
+                    x = int(x)
+                    y = int(y)
+                    print(f"Moving the current active window to {x}, {y}.")
+                    move_window_coordinates_from_topleft(x, y)
+                case "resize":
+                    passed_args = function_to_perform_for_window[1]
+                    width, height = passed_args.split(', ')
+                    width = int(width)
+                    height = int(height)
+                    print(f"Resizing the currently active window to {width}, {height}.")
+                    set_window_size(width, height)
+                case "maximize":
+                    print("Maximizing the cuurently active window.")
+                    active_window = pygetwindow.getActiveWindow()
+                    if active_window:
+                        active_window.maximize()
+                    else:
+                        print("No active window found!")
+                case "minimize":
+                    print("Minimizing the cuurently active window.")
+                    active_window = pygetwindow.getActiveWindow()
+                    if active_window:
+                        active_window.minimize()
+                    else:
+                        print("No active window found!")
+                case "restore":
+                    print("Restoring the cuurently active window.")
+                    active_window = pygetwindow.getActiveWindow()
+                    if active_window:
+                        active_window.restore()
+                    else:
+                        print("No active window found!")
 
         case _:
             print(f"Unknown command. {function_name}")        # Unknown command

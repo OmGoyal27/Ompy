@@ -1,0 +1,65 @@
+window move 0, 0
+window resize 800, 600
+wait 1
+window resize 600, 800
+wait 1
+window resize 800, 600
+wait 1
+window resize 600, 800
+wait 1
+window move 1000, 1000
+wait 1
+window resize 100, 1000
+wait 1
+window resize 600, 800
+wait 1
+window maximize
+wait 1
+window move 100, 100
+wait 1
+window resize 600, 800
+wait 1
+window maximize
+wait 1
+window resize 10, 10
+window move 100, 100
+wait 1
+window maximize
+wait 1
+window resize 800, 600
+wait 1
+window maximize
+wait 1
+window move 100, 100
+wait 1
+window resize 600, 800
+wait 1
+window maximize
+wait 1
+window resize 10, 10
+window move 100, 100
+wait 1
+window maximize
+window restore
+wait 1
+window resize 800, 600
+wait 1
+window maximize
+wait 1
+window move 100, 100
+wait 1
+window resize 600, 800
+wait 1
+window maximize
+wait 1
+window resize 10, 10
+window move 100, 100
+wait 1
+window maximize
+wait 1
+window resize 800, 600
+wait 1
+window resize 600, 800
+window maximize
+window minimize
+speak Byee...
