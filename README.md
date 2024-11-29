@@ -41,7 +41,8 @@ Each argument is separated with a space.
 |window resize|width, height|
 |window maximize|None|
 |window minimize|None|
-|window restore|None
+|window restore|None|
+|screenshot|path|
 
 ## Detailed documentation on each key
 
@@ -245,3 +246,10 @@ Each argument is separated with a space.
 
         - The window restore commad accepts no arguments and restores the currently active window.
         - For eg; window restore
+
+- Screenshot
+
+    - The screenshot command is used to silently take a full picture of the screen.
+    - The argument to pass is the path where to store the file.
+    - It is also required to add the filename and the extention too.
+    - For eg; screenshot C:/screenshot.png

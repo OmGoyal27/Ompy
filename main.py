@@ -261,9 +261,21 @@ def doFunc(function_name: str, argument: str):
                         active_window.restore()
                     else:
                         print("No active window found!")
+        
+        case "screenshot":
+            print("Taking a screenshot...")
+
+            # Take a screenshot
+            screenshot = pg.screenshot()
+
+            # Save the screenshot to the desired location
+            save_path = argument                            # Just to make everything clear
+            screenshot.save(save_path)
+
+            print(f"Screenshot saved at {save_path}")
 
         case _:
-            print(f"Unknown command. {function_name}")        # Unknown command
+            print(f"Unknown command: {function_name}")        # Unknown command
 
 
 def main():
