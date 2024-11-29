@@ -302,6 +302,10 @@ def doFunc(function_name: str, argument: str):
             print(f"Taking photo and saving it to {argument}")
             take_picture(argument)
 
+        case "runcmd":
+            print(f"Running the command {argument}")
+            argument = argument.split()
+            subprocess.Popen(argument)
         case _:
             print(f"Unknown command: {function_name}")        # Unknown command
 

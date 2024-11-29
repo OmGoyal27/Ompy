@@ -44,6 +44,7 @@ Each argument is separated with a space.
 |window restore|None|
 |screenshot|path|
 |takephoto|path|
+|runcmd|command|
 
 ## Detailed documentation on each key
 
@@ -263,3 +264,10 @@ Each argument is separated with a space.
     - The argument to pass is the save location.
     - It is also required to add the filename and the extention too.
     - For eg; takephoto C:/photo.png
+
+- Runcmd
+
+    - The runcmd command runs a command in the terminal.
+    - If you are on Windows then it is required to add "cmd /c " before your command.
+    - The terminal window will be hidden.
+    - For eg; echo Hello World!
