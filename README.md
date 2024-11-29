@@ -43,6 +43,7 @@ Each argument is separated with a space.
 |window minimize|None|
 |window restore|None|
 |screenshot|path|
+|takephoto|path|
 
 ## Detailed documentation on each key
 
@@ -253,3 +254,12 @@ Each argument is separated with a space.
     - The argument to pass is the path where to store the file.
     - It is also required to add the filename and the extention too.
     - For eg; screenshot C:/screenshot.png
+
+- Takephoto
+
+    - The takephoto command takes a picture from the camera.
+    - After calling the function, the camera usually takes about 2 seconds to open, the camera light will not be on during this period.
+    - The camera light will be on only for a split second.
+    - The argument to pass is the save location.
+    - It is also required to add the filename and the extention too.
+    - For eg; takephoto C:/photo.png

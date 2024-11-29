@@ -12,6 +12,7 @@ from sys import exit as stopscript, argv
 from pathlib import Path
 import screen_brightness_control as sbc
 import pygetwindow
+import cv2
 
 TEXT_TO_SPEECH_SPEED = 130
 POPUP_TITLE = "Popup message"
@@ -84,6 +85,29 @@ def combo(argument: str):
     arguments = argument.split('+')
     
     pg.hotkey(arguments)
+
+def take_picture(save_path: str):
+    '''Takes a picture for the camera and saves it to the desired location.'''
+    # Initialize the camera (0 is typically the default camera)
+    camera = cv2.VideoCapture(0)        # Change the camera number according to you.
+
+    # Check if the camera opened successfully
+    if not camera.isOpened():
+        print("Error: Could not access the camera.")
+    else:
+        # Capture a single frame
+        ret, frame = camera.read()
+
+        if ret:
+            # Save the captured frame to the specified path
+            cv2.imwrite(save_path, frame)
+            print(f"Screenshot saved at {save_path}")
+        else:
+            print("Error: Could not capture a frame.")
+
+    # Release the camera
+    camera.release()
+
 
 def custom_funcs(function_names: str):
     '''Performs a series of functions given based on the function names.'''
@@ -273,6 +297,10 @@ def doFunc(function_name: str, argument: str):
             screenshot.save(save_path)
 
             print(f"Screenshot saved at {save_path}")
+        
+        case "takephoto":
+            print(f"Taking photo and saving it to {argument}")
+            take_picture(argument)
 
         case _:
             print(f"Unknown command: {function_name}")        # Unknown command

@@ -6,3 +6,4 @@ keyboard
 requests
 screen_brightness_control
 pygetwindow
+opencv-python
