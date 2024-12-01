@@ -19,6 +19,10 @@ POPUP_TITLE = "Popup message"
 NOTIFICATION_TIMEOUT_SECONDS = 3
 
 
+def example_execfunc():
+    print("Hello world!")
+
+
 def set_brightness(brightness_level: int):
     # get current brightness value
     previous_brightness_level = sbc.get_brightness()[0]
@@ -306,6 +310,14 @@ def doFunc(function_name: str, argument: str):
             print(f"Running the command {argument}")
             argument = argument.split()
             subprocess.Popen(argument)
+
+        case "execfunc":
+            if argument in globals():
+                print(f"Executing function {argument}")
+                globals()[argument]()  # Execute the function.
+            else:
+                print(f"No function named {argument} was found.")
+
         case _:
             print(f"Unknown command: {function_name}")        # Unknown command
 

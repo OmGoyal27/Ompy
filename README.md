@@ -45,6 +45,7 @@ Each argument is separated with a space.
 |screenshot|path|
 |takephoto|path|
 |runcmd|command|
+|execfunc|function|
 
 ## Detailed documentation on each key
 
@@ -271,3 +272,9 @@ Each argument is separated with a space.
     - If you are on Windows then it is required to add "cmd /c " before your command.
     - The terminal window will be hidden.
     - For eg; echo Hello World!
+
+- Execfunc
+
+    - The execfunc command executes a function present in the Python script.
+    - The argument to pass is the function name without parentheses.
+    - For eg; execfunc example_execfunc
