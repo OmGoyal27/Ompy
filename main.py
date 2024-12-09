@@ -13,6 +13,7 @@ from pathlib import Path
 import screen_brightness_control as sbc
 import pygetwindow
 import cv2
+from playsound import playsound as playaudiofrompath
 
 TEXT_TO_SPEECH_SPEED = 130
 POPUP_TITLE = "Popup message"
@@ -317,6 +318,10 @@ def doFunc(function_name: str, argument: str):
                 globals()[argument]()  # Execute the function.
             else:
                 print(f"No function named {argument} was found.")
+
+        case "playaudio":
+            print(f"Running the audio file located at {argument}")
+            playaudiofrompath(argument)
 
         case _:
             print(f"Unknown command: {function_name}")        # Unknown command

@@ -46,6 +46,7 @@ Each argument is separated with a space.
 |takephoto|path|
 |runcmd|command|
 |execfunc|function|
+|playaudio|path|
 
 ## Detailed documentation on each key
 
@@ -278,3 +279,9 @@ Each argument is separated with a space.
     - The execfunc command executes a function present in the Python script.
     - The argument to pass is the function name without parentheses.
     - For eg; execfunc example_execfunc
+
+- Playaudio
+
+    - The playaudio command plays an audio file present on your computer, in the background.
+    - The argument to pass is either the absolute or relative path of the audio file.
+    - For eg; playaudio Examples/output.mp3
