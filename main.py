@@ -4,6 +4,7 @@ import subprocess
 from pathlib import Path
 import time
 import pyttsx3
+import plyer
 from plyer import notification
 from keyboard import wait as waitforkeypressed, add_hotkey
 import requests
@@ -13,6 +14,7 @@ from pathlib import Path
 import screen_brightness_control as sbc
 import pygetwindow
 import cv2
+import playsound
 from playsound import playsound as playaudiofrompath
 
 TEXT_TO_SPEECH_SPEED = 130
