@@ -2,3 +2,8 @@
 test.py
 # Ignore the commands.om file, which is used mainly for testing
 commands.om
+# Ignore the pyinstaller's folders
+dist/
+build/
+# Ignore the .spec file
+main.spec
