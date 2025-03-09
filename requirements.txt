@@ -1,5 +1,4 @@
 pyautogui
-webbrowser
 pyttsx3
 plyer
 keyboard
@@ -7,3 +6,5 @@ requests
 screen_brightness_control
 pygetwindow
 opencv-python
+playsound
+pyaudio
